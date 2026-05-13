@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="日语学习" />
+    <meta name="theme-color" content="#7BA05B" />
+    <meta name="description" content="《26新版中日交流标准日本语》学习应用，包含完整初级课程" />
+    <title>日语学习助手</title>
+    <script type="module">
+      if (import.meta.hot?.on) {
+        import.meta.hot.on('vite:error', (error) => {
+          if (error.err) {
+            console.error(
+              [error.err.message, error.err.frame].filter(Boolean).join('\n'),
+            );
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
