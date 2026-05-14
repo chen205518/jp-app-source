@@ -25,13 +25,13 @@ const navigateTo = (path: string) => {
         >
           <div
             :class="[
-              'w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all',
+              'w-5 h-5 rounded-full flex items-center justify-center shadow-lg transition-all',
               isActive('/home') 
                 ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
                 : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
             ]"
           ></div>
-          <span class="text-[10px] font-bold text-white drop-shadow-md">五十音图</span>
+          <span class="text-lg font-bold text-white drop-shadow-md">五十音图</span>
         </button>
 
         <button
@@ -42,13 +42,13 @@ const navigateTo = (path: string) => {
         >
           <div
             :class="[
-              'w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all',
+              'w-5 h-5 rounded-full flex items-center justify-center shadow-lg transition-all',
               isActive('/course') 
                 ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
                 : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
             ]"
           ></div>
-          <span class="text-[10px] font-bold text-white drop-shadow-md">课程</span>
+          <span class="text-lg font-bold text-white drop-shadow-md">课程</span>
         </button>
 
         <button
@@ -59,13 +59,13 @@ const navigateTo = (path: string) => {
         >
           <div
             :class="[
-              'w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all',
+              'w-5 h-5 rounded-full flex items-center justify-center shadow-lg transition-all',
               isActive('/my') 
                 ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
                 : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
             ]"
           ></div>
-          <span class="text-[10px] font-bold text-white drop-shadow-md">我的</span>
+          <span class="text-lg font-bold text-white drop-shadow-md">我的</span>
         </button>
       </div>
     </div>
