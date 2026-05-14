@@ -185,7 +185,7 @@ const speakJapanese = (text: string) => {
       </div>
 
       <div class="shrink-0">
-        <div class="bg-[#6D5D4D]/80 backdrop-blur-xl rounded-xl shadow-lg p-2.5 text-center border border-white/20 max-w-[95%] mx-auto">
+        <div class="bg-[#6D5D4D]/80 backdrop-blur-xl rounded-xl shadow-lg p-2.5 text-center border border-white/20 max-w-[80%] mx-auto">
           <div class="text-lg font-bold text-[#F5F5DC] mb-1">
             {{ selectedChar?.hiragana || selectedChar?.katakana }}
           </div>
