@@ -16,7 +16,7 @@ const navigateTo = (path: string) => {
 <template>
   <div class="fixed bottom-0 left-0 right-0 z-40" :style="{ paddingBottom: `env(safe-area-inset-bottom, 0px)` }">
     <div>
-      <div class="max-w-[400px] mx-auto flex items-end justify-center gap-8 py-4 px-4">
+      <div class="max-w-[400px] mx-auto flex items-end justify-center gap-12 py-4 px-4">
         <button
           @click="navigateTo('/home')"
           :class="[
