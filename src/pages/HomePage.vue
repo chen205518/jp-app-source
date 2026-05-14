@@ -160,7 +160,7 @@ const speakJapanese = (text: string) => {
       </h1>
     </div>
 
-    <div class="flex-1 flex flex-col px-3 gap-y-3 overflow-y-auto pb-[80px]">
+    <div class="flex-1 flex flex-col px-3 gap-y-3 overflow-y-auto pb-3">
       <div class="flex-1 bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-4 border border-white/20 max-w-[100%] mx-auto max-h-[85vh]">
         <div class="grid grid-cols-5 gap-2.5 w-full h-full">
           <template v-for="(item, rowIndex) in hiraganaData" :key="rowIndex">
@@ -218,22 +218,23 @@ const speakJapanese = (text: string) => {
         </div>
       </div>
       
-      <div class="flex justify-center pt-3">
-        <button
-          @click="navigateTo('/course')"
-          class="flex flex-col items-center gap-1 transition-all"
-        >
-          <div
-            :class="[
-              'w-4 h-4 rounded-full flex items-center justify-center shadow-lg transition-all',
-              isRouteActive('/course') 
-                ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
-                : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
-            ]"
-          ></div>
-          <span class="text-sm font-bold text-white drop-shadow-md">课程</span>
-        </button>
-      </div>
+    </div>
+
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-end pointer-events-none" :style="{ paddingBottom: `env(safe-area-inset-bottom, 0px)` }">
+      <button
+        @click="navigateTo('/course')"
+        class="flex flex-col items-center gap-1 transition-all pointer-events-auto pb-4"
+      >
+        <div
+          :class="[
+            'w-4 h-4 rounded-full flex items-center justify-center shadow-lg transition-all',
+            isRouteActive('/course') 
+              ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
+              : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
+          ]"
+        ></div>
+        <span class="text-sm font-bold text-white drop-shadow-md">课程</span>
+      </button>
     </div>
 
     <BottomNav />
