@@ -187,10 +187,10 @@ const speakJapanese = (text: string) => {
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
                 </svg>
               </div>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[27px] font-bold text-[#4A6741] leading-tight">
-                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[20px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[20px] font-bold text-[#4A6741] leading-tight">
+                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[15px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
               </span>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[16px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[12px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
             </div>
           </template>
         </div>
