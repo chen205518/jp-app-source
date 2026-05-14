@@ -3,9 +3,12 @@ name = "jp-app"
 compatibility_date = "2024-11-06"
 
 [build]
-command = "npm run build"
+command = "npm run pages:build"
 cwd = "."
 watch_dir = "src"
+
+[build.upload]
+dir = "dist"
 
 [[redirects]]
 from = "/*"
