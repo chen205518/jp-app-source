@@ -148,16 +148,16 @@ const speakJapanese = (text: string) => {
       </h1>
     </div>
 
-    <div class="flex-1 flex flex-col px-6 gap-y-2 overflow-y-auto pb-[80px]">
-      <div class="flex-1 bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-0 border border-white/20">
-        <div class="grid grid-cols-5 gap-0 w-full h-full">
+    <div class="flex-1 flex flex-col px-5 gap-y-2 overflow-y-auto pb-[80px]">
+      <div class="flex-1 bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-0.5 border border-white/20">
+        <div class="grid grid-cols-5 gap-0.5 w-full h-full">
           <template v-for="(item, rowIndex) in hiraganaData" :key="rowIndex">
             <div
               v-for="(char, colIndex) in item.row"
               :key="`${rowIndex}-${colIndex}`"
               @click="handleCharClick(char, katakanaData[rowIndex].row[colIndex], item.romanji[colIndex])"
               :class="[
-                'aspect-square rounded-none flex flex-col items-center justify-center transition-all duration-200 cursor-pointer border border-white/30 backdrop-blur-md relative',
+                'aspect-square rounded-sm flex flex-col items-center justify-center transition-all duration-200 cursor-pointer border border-white/30 backdrop-blur-md relative',
                 char || katakanaData[rowIndex].row[colIndex]
                   ? 'bg-[#C5D99A]/40 hover:bg-[#D4E7B0]/50 hover:border-white/40 hover:shadow-lg active:scale-95'
                   : 'bg-transparent cursor-default'
@@ -169,16 +169,16 @@ const speakJapanese = (text: string) => {
                   (!char && selectedChar?.katakana === katakanaData[rowIndex].row[colIndex]) ||
                   (!katakanaData[rowIndex].row[colIndex] && selectedChar?.hiragana === char)
                 )"
-                class="absolute inset-0 bg-[#4A6741]/30 flex items-center justify-center animate-pulse rounded-none"
+                class="absolute inset-0 bg-[#4A6741]/30 flex items-center justify-center animate-pulse rounded-sm"
               >
-                <svg class="w-1.5 h-1.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
                 </svg>
               </div>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[9px] font-bold text-[#4A6741] leading-tight">
-                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[5px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[11px] font-bold text-[#4A6741] leading-tight">
+                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[6px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
               </span>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[4px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[5px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
             </div>
           </template>
         </div>
