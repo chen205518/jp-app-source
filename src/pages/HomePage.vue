@@ -169,7 +169,7 @@ const speakJapanese = (text: string) => {
               :key="`${rowIndex}-${colIndex}`"
               @click="handleCharClick(char, katakanaData[rowIndex].row[colIndex], item.romanji[colIndex])"
               :class="[
-                'aspect-square rounded-sm flex flex-col items-center justify-center transition-all duration-200 cursor-pointer border border-white/30 backdrop-blur-md relative',
+                'aspect-square rounded-sm flex flex-col items-center justify-center transition-all duration-200 cursor-pointer border border-white/30 backdrop-blur-md relative p-2',
                 char || katakanaData[rowIndex].row[colIndex]
                   ? 'bg-[#C5D99A]/40 hover:bg-[#D4E7B0]/50 hover:border-white/40 hover:shadow-lg active:scale-95'
                   : 'bg-transparent cursor-default'
