@@ -35,23 +35,6 @@ const navigateTo = (path: string) => {
         </button>
 
         <button
-          @click="navigateTo('/course')"
-          :class="[
-            'flex flex-col items-center gap-1 transition-all',
-          ]"
-        >
-          <div
-            :class="[
-              'w-4 h-4 rounded-full flex items-center justify-center shadow-lg transition-all',
-              isActive('/course') 
-                ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
-                : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
-            ]"
-          ></div>
-          <span class="text-sm font-bold text-white drop-shadow-md">课程</span>
-        </button>
-
-        <button
           @click="navigateTo('/my')"
           :class="[
             'flex flex-col items-center gap-1 transition-all',
