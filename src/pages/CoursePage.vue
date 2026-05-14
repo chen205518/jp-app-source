@@ -177,28 +177,28 @@ onUnmounted(() => {
 
 <template>
   <div class="min-h-dvh bg-[#7BA05B] flex flex-col" :style="{ paddingBottom: `env(safe-area-inset-bottom, 0px)` }">
-    <h1 class="text-lg font-bold text-white mt-2 mb-1 text-center shrink-0">课程</h1>
+    <h1 class="text-2xl font-bold text-white mt-2 mb-1 text-center shrink-0">课程</h1>
 
     <div ref="scrollContainer" class="flex-1 overflow-y-auto px-3 pb-24" @scroll="handleScroll">
       <div class="flex flex-col items-center gap-2 py-1">
         <div
           v-for="course in courses"
           :key="course.id"
-          class="w-full max-w-[300px] bg-[#A8C686]/60 backdrop-blur-xl rounded-xl p-3 border border-white/20 cursor-pointer"
+          class="w-full max-w-[300px] bg-[#A8C686]/60 backdrop-blur-xl rounded-xl p-4 border border-white/20 cursor-pointer"
           @click="openCourse(course.id)"
         >
-          <div class="text-base font-bold text-[#4A6741] mb-1">{{ course.title }}</div>
-          <div class="text-xs text-[#5C7A52] mb-2">{{ course.description }}</div>
+          <div class="text-2xl font-bold text-[#4A6741] mb-1">{{ course.title }}</div>
+          <div class="text-sm text-[#5C7A52] mb-2">{{ course.description }}</div>
           <div 
-            class="w-full bg-white/30 rounded-full h-2.5 relative"
+            class="w-full bg-white/30 rounded-full h-4 relative"
             @click="handleProgressClick($event, course.id)"
           >
             <div
-              class="bg-[#4A6741] h-2.5 rounded-full transition-all"
+              class="bg-[#4A6741] h-4 rounded-full transition-all"
               :style="{ width: course.progress + '%' }"
             ></div>
           </div>
-          <div class="text-[10px] text-[#5C7A52] mt-1 text-right">{{ course.progress }}%</div>
+          <div class="text-[20px] text-[#5C7A52] mt-1 text-right">{{ course.progress }}%</div>
         </div>
       </div>
     </div>
@@ -231,53 +231,53 @@ onUnmounted(() => {
     <div v-if="showDetail && selectedCourse" class="fixed inset-0 bg-[#7BA05B] z-50 flex flex-col">
       <div class="flex items-center justify-between px-4 py-3 bg-[#7BA05B]/80 border-b border-white/20">
         <button @click="closeDetail" class="flex items-center gap-2 text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
           </svg>
-          <span>返回</span>
+          <span class="text-lg">返回</span>
         </button>
-        <h2 class="text-lg font-bold text-white">{{ selectedCourse.title }}</h2>
+        <h2 class="text-2xl font-bold text-white">{{ selectedCourse.title }}</h2>
         <div class="w-16"></div>
       </div>
 
       <div ref="detailScrollContainer" class="flex-1 overflow-y-auto px-3 py-3 pb-20" @scroll="handleDetailScroll">
         <div class="max-w-[360px] mx-auto space-y-3">
-          <div class="bg-[#6D5D4D]/80 rounded-xl p-2.5 mx-4 cursor-pointer hover:bg-[#6D5D4D]/90 transition-all" @click="openGojuon">
+          <div class="bg-[#6D5D4D]/80 rounded-xl p-4 mx-4 cursor-pointer hover:bg-[#6D5D4D]/90 transition-all" @click="openGojuon">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="font-bold text-[#F5F5DC] text-sm">五十音图</h3>
-                <p class="text-[#F5F5DC]/70 text-[10px]">查看平假名和片假名</p>
+                <h3 class="font-bold text-[#F5F5DC] text-lg">五十音图</h3>
+                <p class="text-[#F5F5DC]/70 text-[20px]">查看平假名和片假名</p>
               </div>
-              <svg class="w-5 h-5 text-[#F5F5DC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-[#F5F5DC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
           </div>
           
-          <div class="bg-[#A8C686]/60 rounded-xl p-3">
-            <h3 class="font-bold text-[#4A6741] mb-1 text-sm">核心语法</h3>
-            <p class="text-lg font-bold text-[#4A6741]">{{ selectedCourse.content.grammar }}</p>
+          <div class="bg-[#A8C686]/60 rounded-xl p-4">
+            <h3 class="font-bold text-[#4A6741] mb-1 text-lg">核心语法</h3>
+            <p class="text-2xl font-bold text-[#4A6741]">{{ selectedCourse.content.grammar }}</p>
           </div>
           
-          <div class="bg-[#A8C686]/60 rounded-xl p-3">
-            <h3 class="font-bold text-[#4A6741] mb-1 text-sm">语法说明</h3>
-            <p class="text-xs text-[#5C7A52]">{{ selectedCourse.content.explanation }}</p>
+          <div class="bg-[#A8C686]/60 rounded-xl p-4">
+            <h3 class="font-bold text-[#4A6741] mb-1 text-lg">语法说明</h3>
+            <p class="text-sm text-[#5C7A52]">{{ selectedCourse.content.explanation }}</p>
           </div>
           
-          <div class="bg-[#A8C686]/60 rounded-xl p-3">
-            <h3 class="font-bold text-[#4A6741] mb-2 text-sm">重点词汇</h3>
+          <div class="bg-[#A8C686]/60 rounded-xl p-4">
+            <h3 class="font-bold text-[#4A6741] mb-2 text-lg">重点词汇</h3>
             <div class="grid grid-cols-2 gap-1.5">
               <div 
                 v-for="(word, index) in selectedCourse.content.vocabulary" 
                 :key="index"
-                class="flip-card h-20"
+                class="flip-card h-32"
                 @click="toggleVocabulary(index)"
               >
                 <div class="flip-card-inner" :class="{ 'flipped': flippedVocabulary[index] }">
-                  <div class="flip-card-front bg-white/40 rounded-lg flex items-center justify-center text-xs font-bold text-[#4A6741]">
+                  <div class="flip-card-front bg-white/40 rounded-lg flex items-center justify-center text-sm font-bold text-[#4A6741]">
                     {{ word.ja }}
                   </div>
-                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg flex items-center justify-center text-xs font-bold text-white">
+                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg flex items-center justify-center text-sm font-bold text-white">
                     {{ word.zh }}
                   </div>
                 </div>
@@ -285,47 +285,47 @@ onUnmounted(() => {
             </div>
           </div>
           
-          <div class="bg-[#A8C686]/60 rounded-xl p-3">
-            <h3 class="font-bold text-[#4A6741] mb-2 text-sm">例句</h3>
+          <div class="bg-[#A8C686]/60 rounded-xl p-4">
+            <h3 class="font-bold text-[#4A6741] mb-2 text-lg">例句</h3>
             <div class="space-y-1.5">
               <div 
                 v-for="(example, index) in selectedCourse.content.examples" 
                 :key="index"
-                class="flip-card h-28"
+                class="flip-card h-40"
                 @click="toggleExample(index)"
               >
                 <div class="flip-card-inner" :class="{ 'flipped': flippedExamples[index] }">
-                  <div class="flip-card-front bg-white/40 rounded-lg p-3 flex items-center justify-center">
-                    <p class="text-base font-bold text-[#4A6741] text-center">{{ example.ja }}</p>
+                  <div class="flip-card-front bg-white/40 rounded-lg p-4 flex items-center justify-center">
+                    <p class="text-2xl font-bold text-[#4A6741] text-center">{{ example.ja }}</p>
                   </div>
-                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg p-3 flex items-center justify-center">
-                    <p class="text-base font-bold text-white text-center">{{ example.zh }}</p>
+                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg p-4 flex items-center justify-center">
+                    <p class="text-2xl font-bold text-white text-center">{{ example.zh }}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="bg-[#A8C686]/60 rounded-xl p-3">
-            <h3 class="font-bold text-[#4A6741] mb-1 text-sm">学习进度</h3>
+          <div class="bg-[#A8C686]/60 rounded-xl p-4">
+            <h3 class="font-bold text-[#4A6741] mb-1 text-lg">学习进度</h3>
             <div 
               ref="detailProgressRef"
-              class="w-full bg-white/30 rounded-full h-6 relative cursor-pointer hover:bg-white/40 transition-all touch-manipulation"
+              class="w-full bg-white/30 rounded-full h-8 relative cursor-pointer hover:bg-white/40 transition-all touch-manipulation"
               @mousedown="startDetailProgressDrag"
               @click="handleDetailProgressClick"
               @touchstart="startDetailProgressTouch"
             >
-              <div class="bg-[#4A6741] h-6 rounded-full transition-all" :style="{ width: selectedCourse.progress + '%' }"></div>
+              <div class="bg-[#4A6741] h-8 rounded-full transition-all" :style="{ width: selectedCourse.progress + '%' }"></div>
               <div 
-                class="absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-lg border-2 border-[#4A6741] flex items-center justify-center transition-transform active:scale-110"
+                class="absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg border-2 border-[#4A6741] flex items-center justify-center transition-transform active:scale-110"
                 :style="{ left: Math.min(selectedCourse.progress, 98) + '%', transform: 'translateX(-50%)' }"
               >
-                <svg class="w-2.5 h-2.5 text-[#4A6741]" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-3 h-3 text-[#4A6741]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z"></path>
                 </svg>
               </div>
             </div>
-            <p class="text-[#5C7A52] mt-1 text-right text-base font-bold">{{ selectedCourse.progress }}%</p>
+            <p class="text-[#5C7A52] mt-1 text-right text-2xl font-bold">{{ selectedCourse.progress }}%</p>
           </div>
         </div>
       </div>
@@ -340,8 +340,8 @@ onUnmounted(() => {
     <div v-if="showGojuon" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-center justify-center p-2" @click="closeGojuon">
       <div class="bg-[#7BA05B] rounded-xl shadow-lg w-full max-w-[360px] max-h-[85vh] overflow-hidden" @click.stop>
         <div class="flex items-center justify-between px-3 py-2 bg-[#7BA05B]/80 border-b border-white/20">
-          <h2 class="text-base font-bold text-white">五十音图</h2>
-          <button @click="closeGojuon" class="w-7 h-7 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-white text-sm transition-all">
+          <h2 class="text-2xl font-bold text-white">五十音图</h2>
+          <button @click="closeGojuon" class="w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-white text-lg transition-all">
             ✕
           </button>
         </div>
