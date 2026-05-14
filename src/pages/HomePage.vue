@@ -162,7 +162,7 @@ const speakJapanese = (text: string) => {
 
     <div class="flex-1 flex flex-col px-3 gap-y-3 overflow-y-auto pb-3">
       <div class="bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-5 border border-white/20 max-w-[100%] mx-auto">
-        <div class="grid grid-cols-5 gap-4 w-full">
+        <div class="grid grid-cols-5 gap-5 w-full">
           <template v-for="(item, rowIndex) in hiraganaData" :key="rowIndex">
             <div
               v-for="(char, colIndex) in item.row"
