@@ -16,7 +16,7 @@ const navigateTo = (path: string) => {
 <template>
   <div class="fixed bottom-0 left-0 right-0 z-40" :style="{ paddingBottom: `env(safe-area-inset-bottom, 0px)` }">
     <div>
-      <div class="max-w-[400px] mx-auto flex items-end justify-center gap-12 py-4 px-4">
+      <div class="max-w-[400px] mx-auto flex items-end justify-between px-12 py-4">
         <button
           @click="navigateTo('/home')"
           :class="[
@@ -32,23 +32,6 @@ const navigateTo = (path: string) => {
             ]"
           ></div>
           <span class="text-sm font-bold text-white drop-shadow-md">五十音图</span>
-        </button>
-
-        <button
-          @click="navigateTo('/course')"
-          :class="[
-            'flex flex-col items-center gap-1 transition-all',
-          ]"
-        >
-          <div
-            :class="[
-              'w-4 h-4 rounded-full flex items-center justify-center shadow-lg transition-all',
-              isActive('/course') 
-                ? 'bg-white/40 text-[#4A6741] scale-110 shadow-xl' 
-                : 'bg-white/20 text-white/80 hover:bg-white/30 hover:scale-105 active:scale-95'
-            ]"
-          ></div>
-          <span class="text-sm font-bold text-white drop-shadow-md">课程</span>
         </button>
 
         <button
