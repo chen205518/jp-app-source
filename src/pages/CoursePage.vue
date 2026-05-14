@@ -274,10 +274,10 @@ onUnmounted(() => {
                 @click="toggleVocabulary(index)"
               >
                 <div class="flip-card-inner" :class="{ 'flipped': flippedVocabulary[index] }">
-                  <div class="flip-card-front bg-white/40 rounded-lg flex items-center justify-center text-sm font-bold text-[#4A6741]">
+                  <div class="flip-card-front bg-white/40 rounded-lg flex items-center justify-center text-lg font-bold text-[#4A6741]">
                     {{ word.ja }}
                   </div>
-                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg flex items-center justify-center text-sm font-bold text-white">
+                  <div class="flip-card-back bg-[#4A6741]/80 rounded-lg flex items-center justify-center text-lg font-bold text-white">
                     {{ word.zh }}
                   </div>
                 </div>
