@@ -148,9 +148,9 @@ const speakJapanese = (text: string) => {
       </h1>
     </div>
 
-    <div class="flex-1 flex flex-col px-4 gap-y-3 overflow-y-auto pb-[80px]">
-      <div class="flex-1 bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-3 border border-white/20 max-w-[100%] mx-auto max-h-[75vh]">
-        <div class="grid grid-cols-5 gap-2 w-full h-full">
+    <div class="flex-1 flex flex-col px-3 gap-y-3 overflow-y-auto pb-[80px]">
+      <div class="flex-1 bg-[#A8C686]/60 backdrop-blur-xl rounded-2xl shadow-lg p-4 border border-white/20 max-w-[100%] mx-auto max-h-[85vh]">
+        <div class="grid grid-cols-5 gap-2.5 w-full h-full">
           <template v-for="(item, rowIndex) in hiraganaData" :key="rowIndex">
             <div
               v-for="(char, colIndex) in item.row"
@@ -171,34 +171,34 @@ const speakJapanese = (text: string) => {
                 )"
                 class="absolute inset-0 bg-[#4A6741]/30 flex items-center justify-center animate-pulse rounded-sm"
               >
-                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
                 </svg>
               </div>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[15px] font-bold text-[#4A6741] leading-tight">
-                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[11px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[20px] font-bold text-[#4A6741] leading-tight">
+                {{ char }}<span v-if="char && katakanaData[rowIndex].row[colIndex]" class="text-[15px]">/</span>{{ katakanaData[rowIndex].row[colIndex] }}
               </span>
-              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[9px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
+              <span v-if="char || katakanaData[rowIndex].row[colIndex]" class="text-[12px] text-[#5C7A52] leading-none mt-0.5">{{ item.romanji[colIndex] }}</span>
             </div>
           </template>
         </div>
       </div>
 
       <div class="shrink-0">
-        <div class="bg-[#6D5D4D]/80 backdrop-blur-xl rounded-xl shadow-lg p-2.5 text-center border border-white/20 max-w-[80%] mx-auto">
-          <div class="text-lg font-bold text-[#F5F5DC] mb-1">
+        <div class="bg-[#6D5D4D]/80 backdrop-blur-xl rounded-xl shadow-lg p-1.5 text-center border border-white/20 max-w-[55%] mx-auto">
+          <div class="text-sm font-bold text-[#F5F5DC] mb-0.5">
             {{ selectedChar?.hiragana || selectedChar?.katakana }}
           </div>
-          <div class="text-[11px] text-[#F5F5DC]/80 mb-1">
+          <div class="text-[7px] text-[#F5F5DC]/80 mb-0.5">
             {{ selectedChar?.hiragana || '—' }} / {{ selectedChar?.katakana || '—' }}
           </div>
-          <div class="text-base text-[#F5F5DC] mb-2">{{ selectedChar?.romanji }}</div>
+          <div class="text-xs text-[#F5F5DC] mb-1.5">{{ selectedChar?.romanji }}</div>
           <button
             @click="speakJapanese(selectedChar?.hiragana || selectedChar?.katakana || '')"
             :disabled="!selectedChar || isSpeaking"
-            class="w-full bg-[#4A6741] hover:bg-[#3A5731] disabled:bg-[#4A6741]/50 text-white rounded-lg py-2 px-3.5 flex items-center justify-center gap-1.5 transition-all active:scale-95 text-sm font-medium"
+            class="w-full bg-[#4A6741] hover:bg-[#3A5731] disabled:bg-[#4A6741]/50 text-white rounded-lg py-1.5 px-2.5 flex items-center justify-center gap-1 transition-all active:scale-95 text-xs font-medium"
           >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"></path>
             </svg>
             <span>{{ isSpeaking ? '发音中...' : '点击发音' }}</span>
